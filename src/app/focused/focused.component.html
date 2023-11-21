@@ -1,0 +1,56 @@
+<p>focused works!</p>
+<dx-data-grid
+  #focusedGrid
+  [focusedRowEnabled]="true"
+  [focusedRowIndex]="0"
+  [autoNavigateToFocusedRow]="true"
+  [dataSource]="ds"
+  [showColumnLines]="true"
+  [showRowLines]="true"
+  [showBorders]="true"
+  [rowAlternationEnabled]="true"
+  [allowColumnResizing]="true"
+  [allowColumnReordering]="true"
+  columnResizingMode="nextColumn"
+  [repaintChangesOnly]="true"
+  [remoteOperations]="{ groupPaging: true }"
+>
+  <dxi-column
+    dataField="codigo"
+    dataType="number"
+    width="80"
+  ></dxi-column>
+  <dxi-column
+    dataField="descripcion"
+    dataType="string"
+    width="400"
+    [allowSorting]="false"
+  >
+  </dxi-column>
+  <dxi-column
+          dataField="rnum"
+          dataType="string"
+          width="80"
+          [allowSorting]="false"
+          [visible]="false"
+  >
+  </dxi-column>
+  <dxo-sorting mode="multiple"></dxo-sorting>
+  <dxo-paging [pageSize]="2"></dxo-paging>
+  <dxo-keyboard-navigation
+    enterKeyAction="moveFocus"
+    enterKeyDirection="row"
+  >
+  </dxo-keyboard-navigation>
+  <dxo-filter-row [visible]="false"></dxo-filter-row>
+  <dxo-export
+    [enabled]="false"
+    [allowExportSelectedData]="true"
+  >
+  </dxo-export>
+  <dxo-selection mode="none" [deferred]="true"></dxo-selection>
+  <dxo-scrolling
+    useNative="false"
+    showScrollbar="never"
+  ></dxo-scrolling>
+</dx-data-grid>
